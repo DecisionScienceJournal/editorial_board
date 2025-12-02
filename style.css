@@ -65,11 +65,11 @@ body {
 }
 
 .top-nav-inner {
-  max-width: 1200px;
+  max-width: 2400px;
   margin: 0;
   padding: 20px 120px;
   display: flex;
-  justify-content: flex-start;   /* 按钮靠右 */
+  justify-content: flex-start; 
   align-items: center;
   box-sizing: border-box;
 }
@@ -107,6 +107,29 @@ body {
 .nav-dropdown-toggle:hover {
   text-decoration: underline;
 }
+
+/* 导航栏右侧社交图标区域 */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 36px;          /* 图标之间的间距 */
+  margin-left: auto; /* 把社交图标推到导航栏最右侧 */
+}
+
+/* 单个图标图片 */
+.nav-social img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+/* 鼠标悬停时轻微效果（可选） */
+.nav-social a:hover img {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
 
 /* About 下拉菜单 */
 .nav-dropdown-menu {
@@ -205,11 +228,31 @@ body {
   color: #ffffff;
 }
 
-/* 让 EDITORIAL OFFICE 蓝色 bar 往上压一点，遮住地图底部约 10% */
-.editorial-header {
-  margin-top: 1000px;        /* 往上叠到 worldmap 上，数值可微调 */
-  position: relative;
-  z-index: 2;               /* 确保在地图之上 */
+/* 右下角的管理员信息 */
+.worldmap-admin {
+  position: absolute;
+  right: 40px;          /* 离右边的距离，可以按需要调 */
+  bottom: 20px;         /* 离底部的距离，可以按需要调 */
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);  /* 让白字在星空上更清晰 */
+  z-index: 2;           /* 确保在图片之上 */
+}
+
+/* 管理员名字的链接样式：白色 + 下划线 */
+.worldmap-admin a:link,
+.worldmap-admin a:visited {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* 悬停时稍微加粗一点下划线效果 */
+.worldmap-admin a:hover,
+.worldmap-admin a:active {
+  color: #ffffff;
+  text-decoration: underline;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* ===== EDITORIAL OFFICE 部分 ===== */
@@ -323,7 +366,7 @@ details.dept-accordion {
 /* summary 就是你看到的那一条金色 bar */
 details.dept-accordion > summary {
   cursor: pointer;
-  background: linear-gradient(90deg,  #81a9bf 0%, #c0d4df 100%);
+  background: linear-gradient(90deg,  #7498ac 0%, #bcd2df 100%);
   color: #ffffff;
   padding: 36px 120px;
   font-size: 32px;
@@ -398,3 +441,86 @@ details.dept-accordion + details.dept-accordion {
   }
 }
 
+/* ==== 底部栏整体 ==== */
+.dsj-footer {
+  background-color: #102846;      /* 深蓝，和上方导航呼应 */
+  color: #ffffff;
+  padding: 40px 80px;
+  margin-top: 60px;               /* 和上面内容留一点空隙 */
+}
+
+/* 内部布局：左 logo + 右新闻 */
+.dsj-footer-inner {
+  max-width: 1200px;
+  margin: 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 200px;
+}
+
+/* 左侧 logo 区 */
+.dsj-footer-left {
+  flex: 0 0 auto;
+}
+
+.dsj-footer-logo {
+  max-width: 400px;               /* 根据实际 logo 大小可微调 */
+  height: auto;
+  display: block;
+}
+
+/* 右侧新闻区 */
+.dsj-footer-right {
+  flex: 1 1 auto;
+}
+
+.dsj-footer-title {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* 新闻列表 */
+.dsj-footer-news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dsj-footer-news li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 日期和正文做一点区分 */
+.dsj-footer-news .news-date {
+  display: inline-block;
+  min-width: 90px;
+  font-weight: 600;
+  color: #c9d4e5;                 /* 淡一点的蓝灰色 */
+}
+
+.dsj-footer-news .news-text {
+  color: #f5f7fb;
+}
+
+/* 小屏幕自适应：上下排列 */
+@media (max-width: 900px) {
+  .dsj-footer {
+    padding: 30px 24px;
+  }
+
+  .dsj-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .dsj-footer-logo {
+    max-width: 220px;
+  }
+}
