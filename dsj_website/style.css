@@ -1,0 +1,400 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 顶部 Logo 区域 */
+.logo-bar {
+  background-color: #ffffff;
+  padding: 20px 0;
+}
+
+/* 让 logo 和右边文字同一行、左右分布 */
+.logo-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;          /* 中间居中，而不是 0 100px */
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;   /* 左右两端对齐 */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+/* 控制 logo 尺寸，防止太大 */
+.logo-main {
+  max-height: 80px;
+  height: auto;
+  width: auto;
+}
+
+/* “Sign up for email alerts” 按钮样式 */
+.email-alerts-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #113d80;
+  text-decoration: none;
+
+  margin-left: auto;    /* ✅ 把自己“顶”到 flex 容器的最右边 */
+  white-space: nowrap;  /* ✅ 禁止在空格处换行，整句始终在一行 */
+}
+
+
+.email-alerts-link:hover {
+  text-decoration: underline;
+}
+
+/* 小箭头稍微大一点 */
+.email-alerts-arrow {
+  font-size: 24px;
+}
+
+
+
+/* ===== 顶部导航栏 & breadcrumb ===== */
+
+/* 顶部深蓝导航条 */
+.top-nav {
+  background-color: #113d80;
+  color: #fff;
+}
+
+.top-nav-inner {
+  max-width: 1200px;
+  margin: 0;
+  padding: 20px 120px;
+  display: flex;
+  justify-content: flex-start;   /* 按钮靠右 */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;   /* 关键：让子元素在交叉轴居中 */
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link,
+.nav-dropdown-toggle {
+  display: inline-flex;      /* 用 flex，让文字在自身盒子里垂直居中 */
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  background: none;
+  border: none;
+  padding: 0;                /* 去掉 button 默认的上下 padding */
+  cursor: pointer;
+  line-height: 1;            /* 统一行高 */
+}
+
+.nav-link:hover,
+.nav-dropdown-toggle:hover {
+  text-decoration: underline;
+}
+
+/* About 下拉菜单 */
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #5877a6;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  min-width: 220px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav-dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
+/* breadcrumb（road map） */
+.breadcrumb {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breadcrumb-inner {
+  max-width: 1200px;
+  margin: 0 ;
+  padding: 12px 80px;
+  font-size: 18px;
+  color: #10264a;
+  box-sizing: border-box;
+}
+
+.breadcrumb-inner a {
+  color: #10264a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb-inner a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  margin: 0 4px;
+}
+
+.dept-section {
+  background-color: #f4f4f4;      /* 和截图里很像的浅灰 */
+  padding: 60px 0 40px;           /* 上下留白 */
+}
+
+/* ===== 世界地图横幅部分 ===== */
+.worldmap-banner {
+  background-color: #ffffff;
+  padding: 0px 0;          /* 控制中间露出的高度 */
+  overflow: hidden;         /* 把超出部分截掉 */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 地图图片：不要铺满宽度，只在中间显示 */
+.worldmap-banner img {
+  width: 100%;
+  height: 250px;
+  opacity: 0.65;            /* 淡淡的背景效果 */
+  display: inline-block;
+}
+
+/* 正中间的“DEPARTMENTS”标题 */
+.worldmap-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* 让 EDITORIAL OFFICE 蓝色 bar 往上压一点，遮住地图底部约 10% */
+.editorial-header {
+  margin-top: 1000px;        /* 往上叠到 worldmap 上，数值可微调 */
+  position: relative;
+  z-index: 2;               /* 确保在地图之上 */
+}
+
+/* ===== EDITORIAL OFFICE 部分 ===== */
+/* 蓝色标题条 */
+.section-header {
+background-color: #113d80;      /* 深蓝：你想要的颜色 */
+color: #fff;
+padding: 48px 0;
+}
+
+.section-header-inner {
+  max-width: none;   /* 或者干脆删掉这一行 */
+  width: 100%;
+  margin: 0;         /* 关键：不要再居中了 */
+  display: flex;
+  align-items: center;
+  padding-left: 120px;   /* 或者你想要的任意值 */
+}
+
+.section-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* 标题右边那根金色竖线 */
+.section-divider {
+  display: inline-block;
+  width: 2px;
+  height: 32px;
+  background-color: #c9a44f;      /* 金色 */
+  margin-left: 18px;
+}
+
+/* 三张卡片整体容器 */
+.editorial-office {
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* 单张卡片 */
+.editorial-card {
+  flex: 1;
+  text-align: center;
+}
+
+/* 圆形头像 */
+.avatar {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 新增这一行：把裁剪的中心稍微往上移 */
+  object-position: center 15%;
+  display: block;
+}
+
+
+/* 名字 & 职位 & 文本 */
+.name {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #b38b2e;                 /* 有点偏金的黄色 */
+}
+
+.role {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.detail {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* -------- 以下是 ALL DEPARTMENTS 的可折叠 bar -------- */
+
+/* 外层容器 */
+.departments-wrapper {
+  width: 100%;      /* 占满整行 */
+  max-width: none;  /* 不要限制在 1200px */
+  margin: 0;        /* 去掉居中和外边距 */
+}
+
+/* 使用 <details> 做折叠，不需要 JS */
+details.dept-accordion {
+  width: 100%;
+  margin: 0;              /* 关键：去掉间隙 */
+  border-radius: 0;
+  overflow: hidden;
+  display: block;         /* 明确整行 */
+}
+
+/* summary 就是你看到的那一条金色 bar */
+details.dept-accordion > summary {
+  cursor: pointer;
+  background: linear-gradient(90deg,  #81a9bf 0%, #c0d4df 100%);
+  color: #ffffff;
+  padding: 36px 120px;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  width: 100%;            /* 占满整行 */
+  box-sizing: border-box; /* 包含 padding */
+}
+
+/* 去掉默认的小箭头（各浏览器兼容写法） */
+details.dept-accordion > summary::-webkit-details-marker {
+  display: none;              /* Chrome / Safari */
+}
+
+/* 去掉不同 bar 之间的缝隙（有些浏览器会给 details 默认 margin） */
+details.dept-accordion + details.dept-accordion {
+  margin-top: 0;
+}
+
+/* 左边的小三角图标 */
+.dept-triangle {
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+/* 折叠栏里面的“Departmental Editors”小标题 */
+.dept-subtitle {
+  margin: 24px 0 12px;      /* 上下留白 */
+  font-size: 26px;          /* 字号比名字大一点 */
+  font-weight: 700;         /* 加粗 */
+  color: #12233a;           /* 深蓝色，和整体风格一致 */
+}
+
+/* 展开的内容区域 */
+.dept-panel {
+  background-color: #f4f4f4;
+  padding: 24px 160px;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.prof-name {
+  font-weight: 700;        /* 加粗 */
+  color: #113d80;          /* 换成你想要的颜色，这里示例用金色 */
+}
+
+.email-link {
+  color: #001a33;          /* 和正文一样的颜色 */
+  text-decoration: none;   /* 去掉下划线（按你需要来） */
+}
+
+/* 在邮箱后面自动加一个小信封图标 */
+.email-link::after {
+  content: "✉";            /* 信封符号 */
+  margin-left: 4px;
+  font-size: 0.8em;
+}
+
+
+/* 响应式：屏幕窄的时候竖着排 */
+@media (max-width: 992px) {
+  .editorial-office {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .editorial-card {
+    max-width: 380px;
+  }
+}
+
