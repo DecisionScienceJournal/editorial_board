@@ -299,6 +299,11 @@ padding: 48px 0;
 
 /* 单张卡片 */
 /* 教授名字链接的下划线颜色 */
+.editorial-card {
+  flex: 1;
+  text-align: center;
+}
+
 .editorial-card a {
   text-decoration-color: #c9a44f; /* 设置下划线为金色 */
   text-decoration-thickness: 2px; /* 下划线粗细可选 */
