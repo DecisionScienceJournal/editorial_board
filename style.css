@@ -327,6 +327,30 @@ padding: 48px 0;
   text-decoration-color: #e6c477; /* 悬停时稍微亮一点，可选 */
 }
 
+/* ===== Department Editors: 两列布局 ===== */
+.dept-editors-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr)); /* 每行两个 */
+  gap: 26px 60px;  /* 行间距 / 列间距，可按需调 */
+  margin-top: 14px;
+}
+
+/* 单个 editor 块 */
+.dept-editor{
+  line-height: 1.6;
+}
+
+/* 教授名字链接可保持你原来的 prof-name 风格 */
+.dept-editor .prof-name{
+  font-weight: 700;
+}
+
+/* 小屏自动变一列（必须要，不然手机会挤爆） */
+@media (max-width: 900px){
+  .dept-editors-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* 圆形头像 */
@@ -477,8 +501,8 @@ details.dept-accordion + details.dept-accordion {
 
 /* 内部布局：左 logo + 右新闻 */
 .dsj-footer-inner {
-  max-width: 1200px;
-  margin: 0 120px;
+  max-width: 2400px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
