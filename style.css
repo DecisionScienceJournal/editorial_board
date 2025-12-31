@@ -346,11 +346,11 @@ padding: 48px 0;
 }
 
 /* 小屏自动变一列（必须要，不然手机会挤爆） */
-@media (max-width: 900px){
+/* @media (max-width: 900px){
   .dept-editors-grid{
     grid-template-columns: 1fr;
   }
-}
+} */
 
 
 /* 圆形头像 */
