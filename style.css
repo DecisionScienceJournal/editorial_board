@@ -478,6 +478,14 @@ details.dept-accordion + details.dept-accordion {
   font-size: 0.8em;
 }
 
+.dept-subtitle a {
+  color: inherit;        /* 继承 h3 的颜色 */
+  font-size: inherit;   /* 继承 h3 的字号 */
+  font-weight: inherit; /* 保持一致（可选但推荐） */
+  /* 不写 text-decoration，所以下划线保留 */
+}
+
+
 
 /* 响应式：屏幕窄的时候竖着排 */
 @media (max-width: 992px) {
