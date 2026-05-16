@@ -279,6 +279,16 @@ padding: 48px 0;
   letter-spacing: 2px;
 }
 
+.section-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-title a:hover {
+  text-decoration: underline;
+}
+
+
 /* 标题右边那根金色竖线 */
 .section-divider {
   display: inline-block;
